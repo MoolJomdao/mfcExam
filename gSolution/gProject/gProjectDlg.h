@@ -2,6 +2,7 @@
 // gProjectDlg.h: 헤더 파일
 //
 
+#include "CDlgImage.h"
 #pragma once
 
 
@@ -22,6 +23,8 @@ public:
 
 
 // 구현입니다.
+private:
+	CDlgImage* m_pDlgImage;
 protected:
 	HICON m_hIcon;
 
@@ -33,4 +36,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedBtnDlg();
+	afx_msg void OnDestroy();
+	void callFunc(int n);
 };

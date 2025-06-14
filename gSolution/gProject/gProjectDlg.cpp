@@ -7,12 +7,14 @@
 #include "gProject.h"
 #include "gProjectDlg.h"
 #include "afxdialogex.h"
+#include "iostream"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #endif
 
-
+using namespace std;
 // 응용 프로그램 정보에 사용되는 CAboutDlg 대화 상자입니다.
 
 class CAboutDlg : public CDialogEx
@@ -66,6 +68,7 @@ BEGIN_MESSAGE_MAP(CgProjectDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BTN_DLG, &CgProjectDlg::OnBnClickedBtnDlg)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -101,6 +104,8 @@ BOOL CgProjectDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	m_pDlgImage = new CDlgImage;
+	m_pDlgImage->Create(IDD_CDlgImage, this);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -154,8 +159,18 @@ HCURSOR CgProjectDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
 void CgProjectDlg::OnBnClickedBtnDlg()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	m_pDlgImage->ShowWindow(SW_SHOW);
+}
+
+void CgProjectDlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+	if (m_pDlgImage) delete m_pDlgImage;
+}
+
+void CgProjectDlg::callFunc(int n) {
+	//int nData = n;
+	cout << n << endl;
 }

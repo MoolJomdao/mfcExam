@@ -183,6 +183,8 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDlgClss.h" />
+    <ClInclude Include="CDlgImage.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="gProject.h" />
     <ClInclude Include="gProjectDlg.h" />
@@ -191,6 +193,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDlgClss.cpp" />
+    <ClCompile Include="CDlgImage.cpp" />
     <ClCompile Include="gProject.cpp" />
     <ClCompile Include="gProjectDlg.cpp" />
     <ClCompile Include="pch.cpp">
