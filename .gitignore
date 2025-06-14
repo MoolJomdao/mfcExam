@@ -1,4 +1,4 @@
 *.VC.*
 x64/
 ipch/
-.vs/
+/gSolution/.vs/gSolution/FileContentIndex
